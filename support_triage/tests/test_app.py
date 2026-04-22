@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from pydantic import BaseModel
 
-from support_triage.app import SupportTriageApp
 from support_triage.demo import sample_ticket
+from support_triage.main import run_sample_ticket
 from support_triage.schemas import (
     Classification,
     DraftReply,
@@ -88,9 +88,7 @@ def _resolver() -> InlineResolver:
 
 
 def test_app_runs_sample_ticket_end_to_end() -> None:
-    app = SupportTriageApp(provider=_StubProvider(), resolver=_resolver())
-
-    packet = app.run_sample_ticket()
+    packet = run_sample_ticket(provider=_StubProvider(), resolver=_resolver())
 
     assert isinstance(packet, ReviewPacket)
     assert packet.approval_required is True
@@ -108,4 +106,3 @@ def test_pipeline_still_has_expected_step_order() -> None:
 def test_sample_ticket_returns_expected_input_type() -> None:
     ticket = sample_ticket()
     assert ticket.subject
-

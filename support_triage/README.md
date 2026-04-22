@@ -19,9 +19,8 @@ support_triage/
 ├── schemas/     # pydantic workflow contracts
 ├── tests/       # unit/integration tests for core seams
 ├── workflow/    # steps + pipeline wiring
-├── app.py       # application/service boundary
 ├── registry.py  # prompt resolver wiring
-└── main.py      # CLI entry point
+└── main.py      # CLI entry point + runtime assembly
 ```
 
 ## Setup

@@ -1,7 +1,7 @@
 """Standalone Typeflux support-triage demo using local prompt files."""
 
-from .app import SupportTriageApp
 from .config import Settings
+from .main import run_sample_ticket, run_ticket
 from .schemas import (
     Classification,
     DraftReply,
@@ -18,9 +18,10 @@ __all__ = [
     "ReviewPacket",
     "RoutingDecision",
     "Settings",
-    "SupportTriageApp",
     "SupportTriagePipeline",
     "TicketInput",
     "Urgency",
     "run",
+    "run_sample_ticket",
+    "run_ticket",
 ]
