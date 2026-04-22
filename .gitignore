@@ -1,0 +1,10 @@
+.DS_Store
+.pytest_cache/
+.venv/
+__pycache__/
+*.egg-info/
+*.pyc
+.ipynb_checkpoints/
+support_triage/.env
+support_triage/.venv/
+tutorial/.venv/

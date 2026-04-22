@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "typeflux-support-triage-demo"
+version = "0.1.0"
+description = "Self-contained Typeflux support triage demo using local prompt files and Anthropic."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "typeflux-py[anthropic]>=0.1.0",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.2",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+support-triage = "support_triage.main:main"
+
+[tool.setuptools]
+packages = [
+  "support_triage",
+  "support_triage.config",
+  "support_triage.demo",
+  "support_triage.domain",
+  "support_triage.prompts",
+  "support_triage.schemas",
+  "support_triage.workflow",
+]
+
+[tool.setuptools.package-dir]
+support_triage = "."
+"support_triage.config" = "config"
+"support_triage.demo" = "demo"
+"support_triage.domain" = "domain"
+"support_triage.prompts" = "prompts"
+"support_triage.schemas" = "schemas"
+"support_triage.workflow" = "workflow"
+
+[tool.setuptools.package-data]
+support_triage = [".env.example"]
+"support_triage.domain" = ["*.yaml"]
+"support_triage.prompts" = ["*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

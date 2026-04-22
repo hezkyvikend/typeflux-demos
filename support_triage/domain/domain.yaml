@@ -1,0 +1,18 @@
+# Support-triage domain configuration.
+
+teams:
+  - billing
+  - technical
+  - account
+  - oncall-engineer
+  - escalation
+
+on_call:
+  primary: alice-chen
+  secondary: bob-patel
+
+business_hours:
+  timezone: America/New_York
+  start: "09:00"
+  end: "18:00"
+

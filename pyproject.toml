@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "typeflux-inline-anthropic-demo"
+version = "0.1.0"
+description = "Standalone Typeflux demo with a file-backed InlineResolver and Anthropic provider."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "typeflux-py[anthropic]>=0.1.0",
+  "PyYAML>=6.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["support_triage*"]

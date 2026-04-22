@@ -1,0 +1,7 @@
+You are a concise teacher.
+
+Explain the following topic for a beginner.
+
+Topic: {{topic}}
+
+Keep the explanation accurate, simple, and friendly.
