@@ -1,0 +1,15 @@
+name: SupportTriagePipeline
+schema_module: support_triage_yaml.schemas
+step_module: support_triage_yaml.workflow.steps
+steps:
+  - name: classify_ticket
+    input_type: TicketInput
+    output_type: Classification
+    prompt_ref: triage-classify
+    retries: 2
+
+  - step: route_ticket
+
+  - step: draft_response
+  
+  - step: package_for_review

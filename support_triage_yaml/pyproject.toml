@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "typeflux-support-triage-yaml-demo"
+version = "0.1.0"
+description = "Self-contained Typeflux support triage demo built from a YAML workflow."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "typeflux-py[anthropic]>=0.1.0",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.2",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+support-triage-yaml = "support_triage_yaml.main:main"
+
+[tool.setuptools]
+packages = [
+  "support_triage_yaml",
+  "support_triage_yaml.config",
+  "support_triage_yaml.demo",
+  "support_triage_yaml.domain",
+  "support_triage_yaml.prompts",
+  "support_triage_yaml.schemas",
+  "support_triage_yaml.workflow",
+]
+
+[tool.setuptools.package-dir]
+support_triage_yaml = "."
+"support_triage_yaml.config" = "config"
+"support_triage_yaml.demo" = "demo"
+"support_triage_yaml.domain" = "domain"
+"support_triage_yaml.prompts" = "prompts"
+"support_triage_yaml.schemas" = "schemas"
+"support_triage_yaml.workflow" = "workflow"
+
+[tool.setuptools.package-data]
+support_triage_yaml = [".env.example"]
+"support_triage_yaml.domain" = ["*.yaml"]
+"support_triage_yaml.prompts" = ["*.txt"]
+"support_triage_yaml.workflow" = ["*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
