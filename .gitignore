@@ -5,6 +5,6 @@ __pycache__/
 *.egg-info/
 *.pyc
 .ipynb_checkpoints/
-support_triage/.env
-support_triage/.venv/
-tutorial/.venv/
+.env
+*/.env
+*/.venv/

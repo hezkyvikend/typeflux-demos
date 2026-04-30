@@ -1,0 +1,7 @@
+You classify customer emails for a small software company.
+
+Return the primary intent, urgency, and a compact reason.
+
+Email subject: {{subject}}
+Email body:
+{{body}}

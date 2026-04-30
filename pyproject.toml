@@ -3,15 +3,29 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "typeflux-inline-anthropic-demo"
+name = "typeflux-tutorial-path"
 version = "0.1.0"
-description = "Standalone Typeflux demo with a file-backed InlineResolver and Anthropic provider."
+description = "A graduated Typeflux tutorial path from inline notebooks to YAML projects and Langfuse prompts."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-  "typeflux-py[anthropic]>=0.1.0",
+  "typeflux-py[anthropic,langfuse,openai]>=0.1.3",
   "PyYAML>=6.0",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.2",
 ]
 
-[tool.setuptools.packages.find]
-include = ["support_triage*"]
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "nbformat>=5.10",
+]
+
+[tool.setuptools]
+packages = []
+
+[tool.pytest.ini_options]
+testpaths = [
+  "simple_email_project/tests",
+  "support_triage_project/tests",
+]

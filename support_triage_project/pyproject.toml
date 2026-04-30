@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "typeflux-support-triage-project"
+version = "0.1.0"
+description = "A YAML Typeflux support triage project with observers and Langfuse prompt bootstrap."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "typeflux-py[anthropic]>=0.1.3",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.2",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+langfuse = [
+  "typeflux-py[langfuse]>=0.1.3",
+]
+
+[project.scripts]
+support-triage = "support_triage_project.main:main"
+
+[tool.setuptools]
+packages = [
+  "support_triage_project",
+  "support_triage_project.config",
+  "support_triage_project.demo",
+  "support_triage_project.domain",
+  "support_triage_project.observers",
+  "support_triage_project.prompts",
+  "support_triage_project.schemas",
+  "support_triage_project.steps",
+  "support_triage_project.workflows",
+]
+
+[tool.setuptools.package-dir]
+support_triage_project = "."
+"support_triage_project.config" = "config"
+"support_triage_project.demo" = "demo"
+"support_triage_project.domain" = "domain"
+"support_triage_project.observers" = "observers"
+"support_triage_project.prompts" = "prompts"
+"support_triage_project.schemas" = "schemas"
+"support_triage_project.steps" = "steps"
+"support_triage_project.workflows" = "workflows"
+
+[tool.setuptools.package-data]
+"support_triage_project.domain" = ["*.yaml"]
+"support_triage_project.prompts" = ["*.txt"]
+"support_triage_project.workflows" = ["*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
