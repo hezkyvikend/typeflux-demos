@@ -1,0 +1,8 @@
+Write a concise support reply for this classified email.
+
+Original subject: {{subject}}
+Intent: {{intent}}
+Urgency: {{urgency}}
+Reason: {{reason}}
+
+The reply should be helpful, honest, and short enough for an email response.

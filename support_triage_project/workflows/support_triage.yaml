@@ -1,0 +1,21 @@
+name: SupportTriageWorkflow
+schema_module: support_triage_project.schemas
+step_module: support_triage_project.steps
+provider: anthropic
+registry: langfuse
+observer: langfuse
+steps:
+  - name: classify_ticket
+    input_type: TicketInput
+    output_type: Classification
+    prompt_ref: triage-classify
+    retries: 2
+
+  - step: route_ticket
+    retries: 2
+
+  - step: draft_response
+    retries: 2
+
+  - step: package_for_review
+    retries: 2

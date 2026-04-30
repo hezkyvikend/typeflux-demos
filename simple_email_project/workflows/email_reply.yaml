@@ -1,0 +1,14 @@
+name: EmailReplyWorkflow
+schema_module: simple_email_project.schemas
+step_module: simple_email_project.steps
+provider: openai
+registry: inline
+steps:
+  - name: classify_intent
+    input_type: EmailInput
+    output_type: IntentClassification
+    prompt_ref: email-classify-intent
+    retries: 2
+
+  - step: draft_reply
+    retries: 2
